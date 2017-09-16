@@ -1,0 +1,3 @@
+/*
+    Installer written in JS Using Streams.
+ */

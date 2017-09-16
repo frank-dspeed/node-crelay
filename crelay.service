@@ -1,0 +1,14 @@
+[Service]
+ExecStart=/usr/bin/node /srv/drivers/node-ftdi-crelay/index.js
+WorkingDirectory=/srv/drivers/node-ftdi-crelay/
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=crelay
+User=root
+Group=root
+Environment=NODE_ENV=production
+Environment=
+
+[Install]
+WantedBy=multi-user.target

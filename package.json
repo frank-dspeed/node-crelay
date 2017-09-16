@@ -1,0 +1,34 @@
+{
+  "name": "ftdi-relay",
+  "version": "0.0.1",
+  "description": "A Relay Controller",
+  "main": "index.js",
+  "config": {
+    "unsafe-perm": true
+  },
+  "scripts": {
+    "preinstall": "sudo npm run apt --unsafe-perm && sudo npm run crelay --unsafe-perm",
+    "apt": "sudo apt-get install libudev-dev libusb-1.0-0-dev libftdi1 libftdi-dev libhidapi-libusb0 libhidapi-dev libusb-1.0-0 libusb-1.0-0-dev -y",
+    "hidapi": "cd hidapi && ./bootstrap && ./configure && make && sudo make install",
+    "crelay": "cd ./crelay/src; make DRV_SAINSMART=4 && sudo make install && npm run copy-conf",
+    "copy-conf": "sudo cp ./crelay.conf /etc",
+    "test": "echo \"Error: no test specified\" && exit 1 && rmmod ftdi_sio usbserial"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "socket.io-client": "^2.0.3",
+    "async": "1.5.0",
+    "promise": "7.0.4",
+    "serialport": "^5.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-polyfill": "^6.23.0",
+    "mocha": "^3.5.0"
+  }
+}

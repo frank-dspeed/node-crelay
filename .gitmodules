@@ -1,0 +1,6 @@
+[submodule "crelay"]
+	path = crelay
+	url = https://github.com/direktspeed/crelay
+[submodule "hidapi"]
+	path = hidapi
+	url = git://github.com/signal11/hidapi.git
